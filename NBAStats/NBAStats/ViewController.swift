@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    let teams = ["Bulls", "Wizards"]
+    let teams = ["Bulls", "Wizards", "Lakers", "Nets", "TimberWolves", "Clippers", "Hornets", "Knicks"]
     var teamsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
     let reuseID = "teamCell"
     
@@ -18,8 +18,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! Team
+        cell.teamName.text = teams[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(teams[indexPath.item])")
     }
 
     override func viewDidLoad() {
@@ -35,10 +40,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: 100)
         
-        teamsCollectionView = UICollectionView(frame: CGRect(x: view.frame.width/2, y: view.frame.height/2, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
+        teamsCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
         teamsCollectionView.delegate = self
         teamsCollectionView.dataSource = self
+        teamsCollectionView.register(Team.self, forCellWithReuseIdentifier: reuseID)
+        teamsCollectionView.backgroundColor = UIColor.red
         
+        view.addSubview(teamsCollectionView)
     }
 
 

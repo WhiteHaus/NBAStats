@@ -58,11 +58,11 @@
 			children = (
 				81CE0E54215EC4BD004FF636 /* AppDelegate.swift */,
 				81CE0E56215EC4BD004FF636 /* ViewController.swift */,
+				81CE0E66215EC9E3004FF636 /* Team.swift */,
 				81CE0E58215EC4BD004FF636 /* Main.storyboard */,
 				81CE0E5B215EC4BE004FF636 /* Assets.xcassets */,
 				81CE0E5D215EC4BE004FF636 /* LaunchScreen.storyboard */,
 				81CE0E60215EC4BE004FF636 /* Info.plist */,
-				81CE0E66215EC9E3004FF636 /* Team.swift */,
 			);
 			path = NBAStats;
 			sourceTree = "<group>";
